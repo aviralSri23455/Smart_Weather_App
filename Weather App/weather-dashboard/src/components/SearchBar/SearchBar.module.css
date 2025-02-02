@@ -1,0 +1,95 @@
+.searchBar {
+  display: flex;
+  gap: clamp(0.8rem, 2vw, 1rem);
+  margin: clamp(1.5rem, 3vw, 2rem) 0;
+}
+
+.inputWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputWrapper i {
+  position: absolute;
+  left: 1rem;
+  color: #64b5f6;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.input {
+  width: 100%;
+  padding: clamp(0.8rem, 2vw, 1rem) clamp(1rem, 3vw, 1rem) clamp(0.8rem, 2vw, 1rem) clamp(2.5rem, 4vw, 3rem);
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  transition: all 0.3s ease;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px #64b5f6;
+}
+
+.button {
+  padding: 0 clamp(1.5rem, 3vw, 2rem);
+  border: none;
+  border-radius: 12px;
+  background: #64b5f6;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: #2196f3;
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .searchBar {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .button {
+    padding: 0.8rem;
+  }
+}
+
+/* Touch device optimization */
+@media (hover: none) {
+  .button:active {
+    transform: scale(0.95);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .input {
+    border: 1px solid white;
+  }
+}
+
+/* Fallback for backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+  .input {
+    background: rgba(30, 30, 30, 0.95);
+  }
+} 

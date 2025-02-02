@@ -1,0 +1,60 @@
+.container {
+  min-height: 100vh;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: linear-gradient(135deg, #1e1e2f, #2c2c44);
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mainContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2rem);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  background: linear-gradient(90deg, #64b5f6, #2196f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Cross-browser support */
+@supports not (gap: 1rem) {
+  .mainContent > * + * {
+    margin-top: clamp(1rem, 3vw, 2rem);
+  }
+}
+
+/* Print styles */
+@media print {
+  .container {
+    background: white;
+    padding: 1rem;
+  }
+
+  h1 {
+    color: black;
+    text-shadow: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .container {
+    background: #1a1a1a;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .container {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  }
+} 
